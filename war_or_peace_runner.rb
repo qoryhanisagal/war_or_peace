@@ -66,6 +66,9 @@ cards = CardGenerator.new(filename).cards  # Generate an array of Card objects f
 # Shuffling ensures that the cards are dealt randomly to the players.
 shuffled_deck = cards.shuffle
 
+# Notify that the cards have been shuffled.
+p "The cards have been shuffled."
+
 # Print the full shuffled deck for debugging (shows the rank of each card).
 # This helps us verify that the deck was shuffled correctly.
 p "Full shuffled deck (ranks only): #{shuffled_deck.map(&:rank)}"
