@@ -8,6 +8,16 @@ class Deck
     @cards = cards # Array of Card object passed when creating the deck
   end
 
+  # Method to return the rank of the card at a given index
+  # This method takes an index (0 or 2 typically) and returns the rank of the card at that position
+  def rank_of_card_at(index)
+    if @cards[index] # Check if the card at the index exists
+      @cards[index].rank
+    else
+      0 # Return 0 if no card exists at that index (edge case)
+    end
+  end
+
   # Method to shuffle the cards in the deck
   def shuffle
     @cards.shuffle! # Shuffle the deck of cards
