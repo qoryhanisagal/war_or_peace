@@ -58,3 +58,17 @@ end
         @spoils_of_war << player1.deck.remove_card
         @spoils_of_war << player2.deck.remove_card
       when :war
+      # In a war turn, both players add their first three cards to the spoils of war
+      3.times do
+        @spoils_of_war << player1.deck.remove_card
+        @spoils_of_war << player2.deck.remove_card
+      end
+    when :mutually_assured_destruction
+      # In a mutually assured destruction turn, the first three cards are removed from both players' decks
+      # These cards are discarded and not added to the spoils
+      3.times do
+        player1.deck.remove_card
+        player2.deck.remove_card
+      end
+    end
+  end
