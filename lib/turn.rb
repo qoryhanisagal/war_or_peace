@@ -26,3 +26,26 @@ end
       :mutually_assured_destruction
     end
   end
+
+  # Determine the winner of the turn based on the type of turn
+  # In a basic turn, the player with the higher first card wins
+  # In a war turn, the player with the higher third card wins
+  # There is no winner in a mutually_assured_destruction turn
+  def winner
+    case type
+    when :basic
+      if player1.deck.rank_of_card_at(0) > player2.deck.rank_of_card_at(0)
+        player1  # Player 1 wins if their first card has a higher rank
+      else
+        player2  # Player 2 wins if their first card has a higher rank
+      end
+    when :war
+      if player1.deck.rank_of_card_at(2) > player2.deck.rank_of_card_at(2)
+        player1  # Player 1 wins if their third card has a higher rank
+      else
+        player2  # Player 2 wins if their third card has a higher rank
+      end
+    else
+      'No Winner'  # In mutually assured destruction, there's no winner
+    end
+  end
