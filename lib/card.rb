@@ -3,7 +3,7 @@ class Card
   # Use `attr_reader` to create getter methods for rank, suit and value
   attr_reader :rank, :suit, :value
 
-# Initialize method to create a new card object with rank, suit, and value
+  # Initialize method to create a new card object with rank, suit, and value
   def initialize(rank, suit, value)
     # The @ symbol represents instance variables that can be accessed in any method in the class
     @rank = rank     # The rank of the card (i.e., 'Jack', 'Queen', 'Ace')

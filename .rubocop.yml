@@ -1,0 +1,8 @@
+AllCops:
+  TargetRubyVersion: 3.2 # Make sure this matches your installed Ruby version
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 100 # Set max line length to 100 characters
