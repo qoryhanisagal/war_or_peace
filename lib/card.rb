@@ -6,8 +6,8 @@ class Card
   # Initialize method to create a new card object with rank, suit, and value
   def initialize(rank, suit, value)
     # The @ symbol represents instance variables that can be accessed in any method in the class
-    @rank = rank     # The rank of the card (i.e., 'Jack', 'Queen', 'Ace')
-    @suit = suit     # The suit of the card (i.e., :heart, :spade, : diamond)
-    @value = value   # The value of the card (i.e, 11 for Jack 14 for Ace)
+    @rank = rank     # Numeric rank (e.g., 13 for King, 14 for Ace)
+    @suit = suit     # Suit of the card (e.g., :heart, :spade)
+    @value = value   # String value for face cards (e.g., "King", "Ace")
   end
 end

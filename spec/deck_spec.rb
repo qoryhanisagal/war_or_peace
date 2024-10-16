@@ -6,10 +6,10 @@ require_relative '../lib/card'
 RSpec.describe Deck do
   # Use a before block to set up common test data for all tests
   before(:each) do
-    # Create three card objects with different ranks and suits
-    @card1 = Card.new(:spade, 'Ace', 14)    # Ace of Spades (rank 14)
-    @card2 = Card.new(:heart, 'King', 13)   # King of Hearts (rank 13)
-    @card3 = Card.new(:diamond, '5', 5)     # 5 of Diamonds (rank 5)
+    # Corrected order: rank (numeric), suit (symbol), value (string)
+    @card1 = Card.new(13, :heart, 'King')    # King of Hearts
+    @card2 = Card.new(7, :spade, '7')        # 7 of Spades
+    @card3 = Card.new(14, :diamond, 'Ace')   # Ace of Diamonds
 
     # Create a deck containing the three card objects
     @deck = Deck.new([@card1, @card2, @card3])
@@ -25,11 +25,11 @@ RSpec.describe Deck do
 
     # Test to check if the deck can return the rank of cards at specific indices
     it 'can return the rank of the cards' do
-      # Expect the rank of the first card (index 0) to be 14 (Ace)
-      expect(@deck.rank_of_card_at(0)).to eq(14)
+      # Expect the rank of the first card (index 0) to be 13 (King)
+      expect(@deck.rank_of_card_at(0)).to eq(13)
 
-      # Expect the rank of the third card (index 2) to be 5 (5 of Diamonds)
-      expect(@deck.rank_of_card_at(2)).to eq(5)
+      # Expect the rank of the third card (index 2) to be 14 (Ace of Diamonds)
+      expect(@deck.rank_of_card_at(2)).to eq(14)
     end
 
     # Test to check if the deck can count the number of cards
@@ -58,10 +58,10 @@ RSpec.describe Deck do
 
     # Test to verify that a card can be dealt (removed) from the deck
     it 'can deal a card from the deck' do
-      # Deal (remove) a card from the top of the deck, which should be the last card (5 of Diamonds)
+      # Deal (remove) a card from the top of the deck, which should be the last card (Ace of Diamonds)
       dealt_card = @deck.deal
 
-      # Expect the dealt card to be the 5 of Diamonds
+      # Expect the dealt card to be the Ace of Diamonds
       expect(dealt_card).to eq(@card3)
 
       # After dealing, expect the deck to contain the remaining two cards

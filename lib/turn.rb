@@ -66,7 +66,7 @@ class Turn
   def award_spoils(winner)
     # Only award spoils if there is a winner (not in the case of 'No Winner')
     winner.deck.cards.concat(@spoils_of_war) unless winner == 'No Winner'
-    
+
     # Clear the spoils_of_war array after awarding the spoils to ensure it's ready for the next turn
     @spoils_of_war = []
   end
@@ -85,8 +85,8 @@ class Turn
   # This method also ensures that both players have at least 3 cards before comparing the third card (to avoid errors)
   def war_turn?
     player1.deck.cards.length >= 3 && player2.deck.cards.length >= 3 &&
-    player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0) &&
-    player1.deck.rank_of_card_at(2) != player2.deck.rank_of_card_at(2)
+      player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0) &&
+      player1.deck.rank_of_card_at(2) != player2.deck.rank_of_card_at(2)
   end
 
   # Helper methods for determining the winner of the turn

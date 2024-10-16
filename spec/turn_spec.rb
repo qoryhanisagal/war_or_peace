@@ -1,9 +1,9 @@
 # Require the necessary files for testing
-require 'rspec'
-require './lib/turn'    # Include the Turn class
-require './lib/player'  # Include the Player class
-require './lib/deck'    # Include the Deck class
-require './lib/card'    # Include the Card class
+
+require_relative '../lib/turn'    # Include the Turn class
+require_relative '../lib/player'  # Include the Player class
+require_relative '../lib/deck'    # Include the Deck class
+require_relative '../lib/card'    # Include the Card class
 
 # Begin describing the Turn class
 RSpec.describe Turn do
@@ -11,14 +11,19 @@ RSpec.describe Turn do
   # This block runs before every test (each `it` block), so we don't need to duplicate setup logic
   before(:each) do
     # Create several Card objects with varying ranks and suits
-    @card1 = Card.new(:heart, 'Jack', 11)     # Jack of Hearts
-    @card2 = Card.new(:heart, '10', 10)       # 10 of Hearts
-    @card3 = Card.new(:heart, '9', 9)         # 9 of Hearts
-    @card4 = Card.new(:diamond, '3', 3)       # 3 of Diamonds
-    @card5 = Card.new(:heart, '8', 8)         # 8 of Hearts
-    @card6 = Card.new(:diamond, 'Queen', 12)  # Queen of Diamonds
-    @card7 = Card.new(:heart, '5', 5)         # 5 of Hearts
-    @card8 = Card.new(:diamond, '2', 2)       # 2 of Diamonds
+    @card1 = Card.new(:heart, 'King', 13)    # King of Hearts
+    @card2 = Card.new(:spade, '7', 7)        # 7 of Spades
+    @card3 = Card.new(:diamond, 'Ace', 14)   # Ace of Diamonds
+    @card4 = Card.new(:club, '10', 10)       # 10 of Clubs
+    @card5 = Card.new(:heart, '2', 2)        # 2 of Hearts
+    @card6 = Card.new('Jack', :heart, 11)     # Jack of Hearts
+    @card7 = Card.new('10', :heart, 10)       # 10 of Hearts
+    @card8 = Card.new('9', :heart, 9)         # 9 of Hearts
+    @card9 = Card.new('3', :diamond, 3)       # 3 of Diamonds
+    @card10 = Card.new('8', :heart, 8)         # 8 of Hearts
+    @card11 = Card.new('Queen', :diamond, 12)  # Queen of Diamonds
+    @card12 = Card.new('5', :heart, 5)         # 5 of Hearts
+    @card13 = Card.new('2', :diamond, 2)       # 2 of Diamonds
 
     # Create two decks, one for each player
     @deck1 = Deck.new([@card1, @card2, @card5, @card8])  # Deck for player1 (Qoiree)
