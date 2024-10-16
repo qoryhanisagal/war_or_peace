@@ -1,6 +1,6 @@
 # Require the Deck and Card classes
 require_relative '../lib/deck'
-require_relative '..lib/card'
+require_relative '../lib/card'
 
 # Begin describing the Deck class
 RSpec.describe Deck do
@@ -43,12 +43,17 @@ it 'can shuffle the deck' do
   expect(deck.cards). to eq([card1])
 end
 
-    # Test that the deck knows how many cards are left
+# Test that the deck knows how many cards are left
+it 'can count the number of cards in the deck' do
+  card1 = Card.new('Ace', :spade, 14)
+  card2 = Card.new('King', :heart, 13)
+  deck = Deck.new([card1, card2])
 
+# Expect the count to return 2 initially 
+expect(deck.count) . to eq (2)
 
-    # Expect the count to return 2 initially 
-
-
-    # Deal a card and expect the count to return 1
+# Deal a card and expect the count to return 1
+deck.deal
+expect(deck.count) .to eq(1)
   end
 end
