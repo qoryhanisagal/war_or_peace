@@ -7,7 +7,7 @@ class Player
   # Initialize a player with a name and a deck
   # The name will identify the player, and the deck will represent the player's collection of cards
   def initialize(name, deck)
-    @name = name  # The player's name (e.g., 'Clarisa', 'Megan', 'Aurora')
+    @name = name  # The player's name (e.g., 'Qoiree', 'Scarlett', 'Skylour')
     @deck = deck  # The player's deck, which holds the player's cards (an instance of the Deck class)
   end
 

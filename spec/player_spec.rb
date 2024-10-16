@@ -19,13 +19,13 @@ RSpec.describe Player do
     @deck = Deck.new([@card1, @card2, @card3, @card4, @card5])
 
     # Create a player with the name 'Clarisa' and the deck created above
-    @player = Player.new('Clarisa', @deck)
+    @player = Player.new('Qoiree', @deck)
   end
 
   # Test to check if a Player object can be created with a name and deck
   it 'exists and has attributes' do
     expect(@player).to be_an_instance_of(Player)  # Check if the player is an instance of the Player class
-    expect(@player.name).to eq('Clarisa')         # Check if the player's name is correctly assigned
+    expect(@player.name).to eq('Qoiree')         # Check if the player's name is correctly assigned
     expect(@player.deck).to eq(@deck)             # Check if the player's deck is correctly assigned
   end
 
