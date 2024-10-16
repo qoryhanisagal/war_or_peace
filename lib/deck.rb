@@ -18,6 +18,13 @@ class Deck
     end
   end
 
+  # Method to return an array of cards with a rank of 11 or higher (face cards and aces)
+  def high_ranking_cards
+    @cards.select do |card|
+      card.rank >= 11 # Select cards where the rank is 11 or higher
+    end
+  end
+
   # Method to shuffle the cards in the deck
   def shuffle
     @cards.shuffle! # Shuffle the deck of cards
