@@ -49,3 +49,12 @@ end
       'No Winner'  # In mutually assured destruction, there's no winner
     end
   end
+
+    # Collect the cards from both players into the spoils_of_war array based on the type of turn
+    def pile_cards
+      case type
+      when :basic
+        # In a basic turn, both players add their first card to the spoils of war
+        @spoils_of_war << player1.deck.remove_card
+        @spoils_of_war << player2.deck.remove_card
+      when :war
