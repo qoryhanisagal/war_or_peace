@@ -29,7 +29,7 @@ RSpec.describe Deck do
     end
   end
 
-  context 'when performing operations on the deck' do
+  describe 'when performing deck opeations' do
     it 'can shuffle the deck' do
       card1 = Card.new('Ace', :spade, 14)
       card2 = Card.new('King', :heart, 13)
