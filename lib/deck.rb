@@ -27,6 +27,13 @@ class Deck
 
   # Method to return the percentage of high-ranking cards in the deck
   def percent_high_ranking
+    high_ranking_count = high_ranking_cards.count  # Count high-ranking cards
+    total_cards_count = @cards.count               # Count total cards
+    # Calculate the percentage of high-ranking cards, round to 2 decimal places
+    (high_ranking_count.to_f / total_cards_count * 100).round(2)
+  end
+
+  end
   # Method to shuffle the cards in the deck
   def shuffle
     @cards.shuffle! # Shuffle the deck of cards
