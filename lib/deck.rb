@@ -33,6 +33,11 @@ class Deck
     (high_ranking_count.to_f / total_cards_count * 100).round(2)
   end
 
+  # Method to remove the top card from the deck
+  def remove_card
+    @cards.shift  # Remove and return the first card from the array (top card)
+  end
+
   end
   # Method to shuffle the cards in the deck
   def shuffle
