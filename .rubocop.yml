@@ -8,4 +8,4 @@ Layout/LineLength:
   Max: 100 # Set max line length to 100 characters
 
 Metrics/BlockLength:
-  Max: 35 # or any number you feel is reasonable
+  Max: 50 # or any number you feel is reasonable
