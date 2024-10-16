@@ -25,6 +25,8 @@ class Deck
     end
   end
 
+  # Method to return the percentage of high-ranking cards in the deck
+  def percent_high_ranking
   # Method to shuffle the cards in the deck
   def shuffle
     @cards.shuffle! # Shuffle the deck of cards
