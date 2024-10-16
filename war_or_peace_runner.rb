@@ -1,7 +1,7 @@
-require_relative '../lib/card'
-require_relative '../lib/deck'
-require_relative '../lib/player'
-require_relative '../lib/turn'
+require_relative './lib/card'
+require_relative './lib/deck'
+require_relative './lib/player'
+require_relative './lib/turn'
 
 # Create 52 cards for a standard deck
 ranks = (2..14).to_a
