@@ -17,12 +17,12 @@ RSpec.describe Turn do
     @card4 = Card.new(:diamond, '3', 3)       # 3 of Diamonds
     @card5 = Card.new(:heart, '8', 8)         # 8 of Hearts
     @card6 = Card.new(:diamond, 'Queen', 12)  # Queen of Diamonds
-    @card7 = Card.new(:heart, '3', 3)         # 3 of Hearts
+    @card7 = Card.new(:heart, '5', 5)         # 5 of Hearts
     @card8 = Card.new(:diamond, '2', 2)       # 2 of Diamonds
 
     # Create two decks, one for each player
-    @deck1 = Deck.new([@card1, @card2, @card5, @card8])  # Deck for player1
-    @deck2 = Deck.new([@card3, @card4, @card6, @card7])  # Deck for player2
+    @deck1 = Deck.new([@card1, @card2, @card5, @card8])  # Deck for player1 (Qoiree)
+    @deck2 = Deck.new([@card3, @card4, @card6, @card7])  # Deck for player2 (Scarlett)
 
     # Create two players with their respective decks
     @player1 = Player.new('Qoiree', @deck1)
@@ -47,6 +47,10 @@ RSpec.describe Turn do
 
   # Test 2: Check the type of the turn when it is :basic
   it 'can return the type of turn as basic' do
+    # Debugging statements to print card ranks before checking the type of turn
+    puts "Player 1's first card rank: #{@player1.deck.rank_of_card_at(0)}"
+    puts "Player 2's first card rank: #{@player2.deck.rank_of_card_at(0)}"
+
     # Since player1 and player2 have different ranks for their first card (Jack vs. 9),
     # this should be a :basic turn
     expect(@turn.type).to eq(:basic)
