@@ -23,15 +23,16 @@ deck1 = Deck.new(shuffled_deck[0..25])
 deck2 = Deck.new(shuffled_deck[26..51])
 
 # Create two players with the shuffled decks
-player1 = Player.new("Player 1", deck1)
-player2 = Player.new("Player 2", deck2)
+player1 = Player.new("Qoiree", deck1)
+player2 = Player.new("Scarlett", deck2)
 
 # Define the game class
 class Game
+  # Initialize the game with two players and a turn count
   def initialize(player1, player2)
-    player1 = Player.new("Qoiree", deck1)
-    player2 = Player.new("Scarlett", deck2)
-    @turn_count = 0
+    @player1 = player1   # Assign the player1 passed from the runner file
+    @player2 = player2   # Assign the player2 passed from the runner file
+    @turn_count = 0      # Initialize the turn count to 0
   end
 
   # Method to start the game
@@ -39,7 +40,12 @@ class Game
     p "Welcome to War! (or Peace) This game will be played with 52 cards."
     p "The players today are #{@player1.name} and #{@player2.name}."
     p "Type 'GO' to start the game!"
-    
+    input = gets.chomp
+    if input != 'GO'
+      p "Invalid input. Type 'GO' to start the game!"
+      return
+    end
+
     # Continue playing until one player has lost or 1,000,000 turns have passed
     until @player1.has_lost? || @player2.has_lost? || @turn_count == 1_000_000
       turn = Turn.new(@player1, @player2)
@@ -47,31 +53,16 @@ class Game
       winner = turn.winner
 
       if turn_type == :mutually_assured_destruction
-        p "*Mutually assured destruction* 3 cards from each player removed from play"
+        p "Turn #{@turn_count}: *Mutually assured destruction* 6 cards removed from play"
         turn.pile_cards
       elsif turn_type == :war
-        p "WAR - #{winner.name} won 6 cards"
+        p "Turn #{@turn_count}: WAR - #{winner.name} won 6 cards"
         turn.pile_cards
         turn.award_spoils(winner)
       else
-        p "#{winner.name} won 2 cards"
+        p "Turn #{@turn_count}: #{winner.name} won 2 cards"
         turn.pile_cards
         turn.award_spoils(winner)
       end
 
       @turn_count += 1
-    end
-
-    if @player1.has_lost?
-      p "*~*~*~* #{@player2.name} has won the game! *~*~*~*"
-    elsif @player2.has_lost?
-      p "*~*~*~* #{@player1.name} has won the game! *~*~*~*"
-    else
-      p "---- DRAW ----"
-    end
-  end
-end
-
-# Start the game
-game = Game.new(player1, player2)
-game.start
