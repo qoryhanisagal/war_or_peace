@@ -72,3 +72,11 @@ end
       end
     end
   end
+  # Award the collected spoils_of_war to the winner of the turn
+  def award_spoils(winner)
+    # If there is a winner (not 'No Winner'), add the spoils to the winner's deck
+    winner.deck.cards.concat(@spoils_of_war) unless winner == 'No Winner'
+    # Clear the spoils_of_war array after awarding the spoils
+    @spoils_of_war = []
+  end
+end
