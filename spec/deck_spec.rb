@@ -5,7 +5,6 @@ require_relative '../lib/card'
 # Begin describing the Deck class
 RSpec.describe Deck do
   # Use a before block to set up common test data for all tests
-  # This block runs before every individual test (it block) within this context
   before(:each) do
     # Create three card objects with different ranks and suits
     @card1 = Card.new(:spade, 'Ace', 14)    # Ace of Spades (rank 14)
@@ -52,7 +51,8 @@ RSpec.describe Deck do
       @deck.shuffle
 
       # Since shuffle is random, we check if the deck still contains the same cards
-      # but we do not check for the order
+      # but we do not check for the order.
+      # contain_exactly checks that the deck contains the same cards, regardless of their order.
       expect(@deck.cards).to contain_exactly(@card1, @card2, @card3)
     end
 
