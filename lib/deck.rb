@@ -38,6 +38,10 @@ class Deck
     @cards.shift  # Remove and return the first card from the array (top card)
   end
 
+
+  # Method to add a card to the bottom of the deck
+  def add_card(card)
+    @cards.push(card)  # Add the card to the end (bottom) of the deck
   end
   # Method to shuffle the cards in the deck
   def shuffle
